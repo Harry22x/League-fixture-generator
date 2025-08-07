@@ -1,7 +1,7 @@
 
 
 def can_play_local(team1, team2, teams):
-    """Checks if two local teams can play against each other."""
+    #Checks if two local teams can play against each other
     other_towns = [t for t in teams if t.town != team1.town and t not in [team1, team2]]
 
     team1_played = set([

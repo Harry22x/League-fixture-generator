@@ -5,16 +5,19 @@ def schedule_match(team1, team2):
     home_team = team1
     away_team = team2
 
+     # This checks if both teams have played each other before if so we increase the count by one to make the Leg 2 
     for match in team1.teams_played:
         if match["name"] == team2.name:
             count += 1
+            #This checks where their previous match was to ensure that they switch Home and Away teams
             if match["stadium"] == team1.stadium:
                 stadium = team2.stadium
                 home_team = team2
                 away_team = team1
 
+    # This ensures that teams do not play each other more than twice
     if count >= 2:
-        return None  # Already played two legs
+        return None  
 
     # Record the match
     team1.teams_played.append({"name": team2.name, "stadium": stadium, "leg": count + 1})
